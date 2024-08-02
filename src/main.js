@@ -1,5 +1,5 @@
-import { fetchData, ingridientAndMeasureData, splitInstructions } from './utils/functions';
-import { clear, paragraphElement, listElement, orderListElement, imageElement } from './utils/items';
+import { fetchData, ingridientAndMeasureData, splitInstructions } from './functions';
+import { clear, paragraphElement, listElement, orderListElement, imageElement } from './items';
 
 // Makes variable for access elements in index.html file
 const body = document.querySelector('body');
