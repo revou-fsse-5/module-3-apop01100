@@ -1,5 +1,2 @@
 # Ignore node modules
 node_modules/
-
-# Ignore .gitignore
-package-lock.json

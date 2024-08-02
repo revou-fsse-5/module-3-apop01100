@@ -37,8 +37,11 @@ button:hover {
 }
 
 .recipe-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
   margin-top: 20px;
-  text-align: center;
+  text-align: justify;
 }
 
 .recipe-title {
@@ -54,4 +57,20 @@ button:hover {
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
+  width: 200px;
 }
+
+.recipe-video {
+  max-width: 100%;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.grid-item1 {
+  text-align: center;
+}
+
+.grid-item2 {
+  text-align: center;
+}
+
