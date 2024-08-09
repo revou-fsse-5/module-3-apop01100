@@ -45,7 +45,7 @@ button:hover {
 }
 
 .recipe-title {
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 10px;
 }
 
@@ -57,13 +57,19 @@ button:hover {
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
-  width: 200px;
+  width: 300px;
 }
 
-.recipe-video {
-  max-width: 100%;
-  border-radius: 8px;
-  width: 400px;
+.recipe-card-image {
+  font-size: 24px;
+  text-align: center;
+  margin: 4px 0px 4px 0px;
+}
+
+.recipe-card-paragraph {
+  font-size: 18px;
+  text-align: center;
+  margin: 4px 0px 4px 0px;
 }
 
 .grid-item1 {
