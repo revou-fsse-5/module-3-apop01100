@@ -1,11 +1,16 @@
-import * as types from "./types";
-import * as functions from "./functions"
+import * as types  from "./types";
+import { default as functions } from "./functions"
 
+// Function for clear inner HTML Element
 function clear(element: HTMLElement): void {
     element.innerHTML = '';
 }
 
-function paragraphElement(parent: Element, text: string, config?: types.Attributes): void {
+// Function for paragraph element card
+function paragraphElement(
+    parent: Element, 
+    text: string, 
+    config?: types.Attributes): void {
     const paragraph: HTMLParagraphElement = document.createElement('p');
     if (config)
         functions.addAttributes(paragraph, config)
@@ -13,7 +18,13 @@ function paragraphElement(parent: Element, text: string, config?: types.Attribut
     parent.appendChild(paragraph);
 }
 
-function listElement(title: string, parent: HTMLElement, items: string[], config: types.ConfigOfList): void {
+// Function forlist element card
+function listElement(
+    title: string, 
+    parent: HTMLElement, 
+    items: string[], 
+    config: types.ConfigOfList): void {
+
     const div = document.createElement('div');
 
     if (config.attributes)
@@ -34,7 +45,12 @@ function listElement(title: string, parent: HTMLElement, items: string[], config
     parent.appendChild(div);
 }
 
-function imageElement(title: string, parent: HTMLElement, source: string, config?:types.ConfigOfImage): void {
+// Function for image element card
+function imageElement(title: string, 
+    parent: HTMLElement, 
+    source: string, 
+    config?:types.ConfigOfImage): void {
+
     const div: HTMLDivElement | null = document.createElement('div');
 
     if (config?.card)
@@ -53,13 +69,18 @@ function imageElement(title: string, parent: HTMLElement, source: string, config
     parent.appendChild(div);
 }
 
-function videoElement(title: string, parent: HTMLElement, source: string, config?:types.ConfigOfVideo): void {
-    const div: HTMLDivElement | null  = document.createElement('iframe');
+// Function for video element card
+function videoElement(
+    title: string, 
+    parent: HTMLElement, 
+    source: string, 
+    config?:types.ConfigOfVideo): void {
+
+    const div: HTMLDivElement | null  = document.createElement('div');
 
     if (config?.card) 
         functions.addAttributes(div, config.card)
     
-
     const h3: HTMLHeadElement | null = document.createElement('h3');
     h3.innerHTML = title;
 
@@ -67,8 +88,7 @@ function videoElement(title: string, parent: HTMLElement, source: string, config
     if (config?.video) 
         functions.addAttributes(video, config.video);
     const videoId: string | null = functions.getId(source);
-    console.log(`Video ID: ${videoId}`)
-    const sourceEmbed: string = `//www.youtube.com/embed/${videoId}`;
+    const sourceEmbed: string = `https://www.youtube.com/embed/${videoId}`;
     video.src = sourceEmbed;
 
     div.appendChild(h3);
@@ -76,7 +96,7 @@ function videoElement(title: string, parent: HTMLElement, source: string, config
     parent.appendChild(div);
 }
 
-export {
+export default {
     clear,
     paragraphElement,
     listElement,

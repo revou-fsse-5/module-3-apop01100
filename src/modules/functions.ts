@@ -1,6 +1,6 @@
-import * as cards from "./cards";
 import * as types from "./types";
 
+// Function for fetch data
 async function getData(endpoint: string): Promise<types.Meal> {
     try{
         const response: Response = await fetch(endpoint);
@@ -26,16 +26,19 @@ async function getData(endpoint: string): Promise<types.Meal> {
     }
 }
 
+// Function for check the pattern and text its same or not
 function matchPattern(pattern: string, text: string): boolean {
     const validation: RegExp = new RegExp(`^${pattern}\\d+$`);
     return validation.test(text);
 }
 
+// Function for split the sentences from instructions/procedure text
 function splitInstructions(text: string): string[] {
-    const results: string[] = text?.split('.');
+    const results: string[] = text?.split(/(?<=[.!?])\s+/);
     return results
 }
 
+// Function for combine ingredients and measures array
 function ingredientsAndMeasures(data: {[key: string]: string}): string[] {
     let ingredients: string[] = [];
     let measures: string[] = [];
@@ -65,16 +68,17 @@ function ingredientsAndMeasures(data: {[key: string]: string}): string[] {
     return results
 }
 
+// Function for add some attributes to HTML element
 function addAttributes(element: HTMLElement, attributes: types.Attributes): void {
     if (attributes) {
         Object.keys(attributes).forEach((key) => {
-            console.log(key)
             if (attributes)
                 element.setAttribute(key, attributes[key]);
         })
     }
 }
 
+// Function to get Id link YouTube video
 function getId(url: string): string | null {
     const regExp: RegExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match: RegExpMatchArray | null  = url.match(regExp);
@@ -84,7 +88,8 @@ function getId(url: string): string | null {
       : null;
 }
 
-export {
+// Exports the functions
+export default {
     getData,
     splitInstructions,
     addAttributes,

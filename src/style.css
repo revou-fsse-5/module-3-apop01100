@@ -72,11 +72,8 @@ button:hover {
   margin: 4px 0px 4px 0px;
 }
 
-.grid-item1 {
-  text-align: center;
-}
-
-.grid-item2 {
-  text-align: center;
+.recipe-video {
+  align-content: center;
+  border-radius: 8px;
 }
 
